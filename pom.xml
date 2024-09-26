@@ -60,8 +60,15 @@
 	<build>
 		<plugins>
 			<plugin>
+				<!-- 正常将java代码编译本地文件的插件：native-maven-plugin -->
 				<groupId>org.graalvm.buildtools</groupId>
 				<artifactId>native-maven-plugin</artifactId>
+				<!-- 该参数开启可以在运行时获取内存快照(heapdump), 实时收集运行时数据(jfr) -->
+				<configuration>
+					<buildArgs>
+						<arg>--enable-monitoring=heapdump,jfr</arg>
+					</buildArgs>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -35,7 +35,6 @@ public class UserServiceImpl implements UserService, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        //初始化时生成数据
         for (int i = 1; i <= 10; i++) {
             users.add(new User((long) i, RandomStringUtils.randomAlphabetic(10)));
         }

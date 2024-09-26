@@ -135,10 +135,10 @@ public class UserController {
         //3.遍历详情集合，从缓存中获取用户名，生成VO进行填充
         return userDetails.stream().map(userDetail -> {
             UserVO userVO = new UserVO();
-            //可以使用BeanUtils对象拷贝
+
             userVO.setId(userDetail.getId());
             userVO.setRegister(userDetail.getRegister().format(formatter));
-            //填充name
+
             userVO.setName(map.get(userDetail.getId()).getName());
             return userVO;
         }).collect(Collectors.toList());
